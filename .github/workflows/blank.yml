@@ -6,7 +6,6 @@ name: CI
 # events but only for the master branch
 on:
   push:
-    branches: [ master, "feature/*" ]
   pull_request:
     branches: [ master, develop ]
 
@@ -24,7 +23,7 @@ jobs:
 
     - name: Get the version
       id: get_version
-      run: echo ::set-output name=VERSION::${GITHUB_REF/refs/*/}
+      run: echo ::set-output name=VERSION::${GITHUB_REF#/refs/*/}
     
     # Runs a single command using the runners shell
     - name: Debug github.ref
