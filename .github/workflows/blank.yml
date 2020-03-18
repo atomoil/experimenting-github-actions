@@ -24,14 +24,14 @@ jobs:
 
     - name: Get the version
       id: get_version
-      run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
+      run: echo ::set-output name=VERSION::${GITHUB_REF/refs/*/}
     
     # Runs a single command using the runners shell
     - name: Debug github.ref
       run: echo github.ref is ${{ github.ref }}
       
     # Runs a single command using the runners shell
-    - name: Debug github.ref 2
+    - name: Debug steps.get_version
       run: echo ref is ${{ steps.get_version.outputs.VERSION }}
 
     # Runs a set of commands using the runners shell
