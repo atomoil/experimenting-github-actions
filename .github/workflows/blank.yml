@@ -23,7 +23,7 @@ jobs:
 
     - name: Get the version
       id: get_version
-      run: echo ::set-output name=VERSION::${GITHUB_REF#/refs/*/}
+      run: echo ::set-output name=VERSION::${GITHUB_REF#refs/*/}
     
     # Runs a single command using the runners shell
     - name: Debug github.ref
